@@ -38,31 +38,34 @@ int is_palindrome(listint_t **head)
 		return (1);
 
 	tmp = *head;
-	while (tmp->n != tmp->next->n && tmp->next)
+	while (tmp->next && tmp->n != tmp->next->n)
 	{
 		add_nodeint(&l_tmp, tmp->n);
 		tmp = tmp->next;
 	}
-	add_nodeint(&l_tmp, tmp->n);
-	tmp = tmp->next;
-	aux = l_tmp;
-	while (tmp->next && aux->next)
+	if (tmp->next)
 	{
+		add_nodeint(&l_tmp, tmp->n);
+		tmp = tmp->next;
+		aux = l_tmp;
+		while (tmp->next && aux->next)
+		{
+			if (tmp->n == aux->n)
+				ret = 1;
+			else
+			{
+				ret = 0;
+				break;
+			}
+			tmp = tmp->next;
+			aux = aux->next;
+		}
 		if (tmp->n == aux->n)
 			ret = 1;
 		else
 		{
 			ret = 0;
-			break;
 		}
-		tmp = tmp->next;
-		aux = aux->next;
-	}
-	if (tmp->n == aux->n)
-		ret = 1;
-	else
-	{
-		ret = 0;
 	}
 	free_listint(l_tmp);
 	return (ret);
