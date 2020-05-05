@@ -67,6 +67,10 @@ int is_palindrome(listint_t **head)
 			ret = 0;
 		}
 	}
+	else if (tmp->n == (*head)->n && (*head)->next->next == tmp)
+	{
+		ret = 1;
+	}
 	free_listint(l_tmp);
 	return (ret);
 }
