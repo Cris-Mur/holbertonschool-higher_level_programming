@@ -4,9 +4,21 @@
 
 class Square:
     """ Define square init with pos"""
-    def __init__(self, new_size=0, new_position=(0, 0)):
-        self.__size = new_size
-        self.__position = new_position
+    def __init__(self, size=0, position=(0, 0)):
+        if type(size) == int:
+            if size < 0:
+                raise ValueError("size must be >= 0")
+            else:
+                self.__size = size
+        else:
+            raise TypeError("size must be an integer")
+        if type(position) != tuple and len(position) != 2:
+            raise TypeError("position must be a tuple or 2 positive integers")
+        if (type(position[0]) == int and position[0] >= 0 and
+                type(position[1]) == int and position[1] >= 0):
+            self.__position = position
+        else:
+            raise TypeError("position must be a tuple or 2 positive integers")
 
     """ Define property position """
     @property
@@ -18,7 +30,7 @@ class Square:
     def position(self, value):
         if type(value) != tuple and len(value) != 2:
             raise TypeError("position must be a tuple or 2 positive integers")
-        if type(value[0] == int and value[0] > 0 and
+        if (type(value[0]) == int and value[0] > 0 and
                 type(value[1]) == int and value[1] > 0):
             self.__position = value
         else:
