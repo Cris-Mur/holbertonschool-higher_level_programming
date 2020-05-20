@@ -8,9 +8,20 @@ class Square:
         self.__size = new_size
         self.__position = new_position
 
-    """ Define square area """
-    def area(self):
-        return self.__size**2
+    """ Define property position """
+    @property
+    def position(self):
+        return self.__position
+
+    """ Define setter position """
+    @position.setter
+    def position(self, value):
+        if (type(new_position[0]) == int and type(new_position[1]) == int or
+            type(new_position) == tuple and len(new_position) == 2 and
+                new_position[0] > 0 and new_position[1] > 0):
+            self.__position = new_position
+        else:
+            raise TypeError("position must be a tuple or 2 positive integers")
 
     """ Define property size """
     @property
@@ -28,6 +39,10 @@ class Square:
         else:
             raise TypeError("size must be an integer")
 
+    """ Define square area """
+    def area(self):
+        return self.__size**2
+
     """ Define square my_print """
     def my_print(self):
         if self.__size == 0:
@@ -38,18 +53,3 @@ class Square:
         for y in range(self.__size):
                 print("{:s}{:s}".format(' ' * self.__position[0],
                                         '#' * self.__size))
-
-    """ Define property position """
-    @property
-    def position(self):
-        return self.__position
-
-    """ Define setter position """
-    @position.setter
-    def position(self, value):
-        if (type(new_position[0]) == int and type(new_position[1]) == int or
-            type(new_position) == tuple and len(new_position) == 2 and
-                new_position[0] > 0 and new_position[1] > 0):
-            self.__position = new_position
-        else:
-            raise TypeError("position must be a tuple or 2 positive integers")
