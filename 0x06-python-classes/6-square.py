@@ -30,17 +30,14 @@ class Square:
 
     """ Define square my_print """
     def my_print(self):
+        if self.__size == 0:
+            print()
+            return
         for py in range(self.__position[1]):
             print()
         for y in range(self.__size):
-            for px in range(self.__position[0]):
-                print(" ", end="")
-            for x in range(self.__size):
-                print("#", end="")
-            print()
-
-        if self.__size == 0:
-            print()
+                print("{:s}{:s}".format(' ' * self.__position[0],
+                                        '#' * self.__size))
 
     """ Define property position """
     @property
