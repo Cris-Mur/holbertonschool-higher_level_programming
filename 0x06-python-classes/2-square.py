@@ -3,7 +3,6 @@
 
 
 class Square:
-    __size = 0
     """ Define square size """
     def __init__(self, new_size=0):
         if type(new_size) == int:
