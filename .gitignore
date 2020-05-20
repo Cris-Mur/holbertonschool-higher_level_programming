@@ -1,3 +1,9 @@
 # emacs back-up files
 *~
 \#*\#
+
+# main files
+*-main*.py
+
+# pycache
+*.pyc
