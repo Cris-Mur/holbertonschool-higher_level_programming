@@ -1,0 +1,117 @@
+=======
+Doctest
+=======
+
+Import module
+=============
+
+	>>> add_integer = __import__('0-add_integer').add_integer
+
+Test integers
+=============
+
+	>>> add_integer(7, 3)
+	10
+
+	>>> add_integer(-7, 3)
+	-4
+
+	>>> add_integer(7, -3)
+	4
+
+	>>> add_integer(-7, -3)
+	-10
+
+Test float
+==========
+
+	>>> add_integer(3.6, 6.4)
+	9
+	>>> add_integer(-3.6, 6.4)
+	3
+	>>> add_integer(3.6, -6.4)
+	-3
+	>>> add_integer(-3.6, -6.4)
+	-9
+
+only one arg
+============
+
+	>>> add_integer(2)
+	100
+
+	>>> add_integer(2.6)
+	100
+
+non numbers
+===========
+
+	>>> add_integer(None, 2)
+	Traceback (most recent call last):
+		  ...
+    	TypeError: a must be an integer
+
+	>>> add_integer(2, None)
+	Traceback (most recent call last):
+		  ...
+    	TypeError: b must be an integer
+
+	>>> add_integer('a', 3)
+	Traceback (most recent call last):
+		  ...
+    	TypeError: a must be an integer
+
+	>>> add_integer(2, 'b')
+	Traceback (most recent call last):
+		  ...
+    	TypeError: b must be an integer
+
+	>>> add_integer("life", 42)
+	Traceback (most recent call last):
+		  ...
+    	TypeError: a must be an integer
+
+	>>> add_integer(42, "life")
+	Traceback (most recent call last):
+		  ...
+    	TypeError: b must be an integer
+
+	>>> add_integer([2, 3], 2)
+	Traceback (most recent call last):
+		  ...
+    	TypeError: a must be an integer
+
+	>>> add_integer(4, [4, 3])
+	Traceback (most recent call last):
+		  ...
+    	TypeError: b must be an integer
+
+	>>> add_integer((2, 4), 4)
+	Traceback (most recent call last):
+		  ...
+    	TypeError: a must be an integer
+
+	>>> add_integer(6, (6, 5))
+	Traceback (most recent call last):
+		  ...
+    	TypeError: b must be an integer
+
+	>>> add_integer({3, 5}, 3)
+	Traceback (most recent call last):
+		  ...
+    	TypeError: a must be an integer
+
+	>>> add_integer(4, {2, 4})
+	Traceback (most recent call last):
+		  ...
+    	TypeError: b must be an integer
+
+	>>> add_integer({"key": 4}, 2)
+	Traceback (most recent call last):
+		  ...
+    	TypeError: a must be an integer
+
+	>>> add_integer(6, {"key": 2})
+	Traceback (most recent call last):
+		  ...
+    	TypeError: b must be an integer
