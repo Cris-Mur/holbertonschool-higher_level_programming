@@ -1,3 +1,7 @@
 #!/bin/python3
-def copy_list(l):
-    return l[:]
+""" Define copy list """
+
+
+def copy_list(coso):
+    """ func that copy list """
+    return coso[:]
