@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-class Rectangle:
-    __width = None
-    __height = None
+""" Rectangle Class """
 
+
+class Rectangle:
+    """ Rectangle Class init function"""
     def __init__(self, width=0, height=0):
         if type(width) == int:
             if width < 0:
@@ -20,10 +21,12 @@ class Rectangle:
         else:
             raise TypeError("height must be an integer")
 
+    """ Property width get """
     @property
     def width(self):
         return self.__width
 
+    """ Define setter width """
     @width.setter
     def width(self, value):
         if type(value) == int:
@@ -34,10 +37,12 @@ class Rectangle:
         else:
             raise TypeError("width must be an integer")
 
+    """ property height get """
     @property
     def height(self):
         return self.__height
 
+    """ def height set """
     @height.setter
     def height(self, value):
         if type(value) == int:
