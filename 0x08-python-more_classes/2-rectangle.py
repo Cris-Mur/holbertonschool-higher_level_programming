@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+""" Rectangle class """
+
+
 class Rectangle:
     """ def init function """
     def __init__(self, width=0, height=0):
