@@ -1,7 +1,9 @@
 #!/usr/bin/python3
+""" Rectangle class """
+
+
 class Rectangle:
-    __width = None
-    __height = None
+    """ rectangle definition  """
     number_of_instances = 0
 
     def __init__(self, width=0, height=0):
@@ -9,10 +11,12 @@ class Rectangle:
         self.height = height
         Rectangle.number_of_instances += 1
 
+    """ width get """
     @property
     def width(self):
         return self.__width
 
+    """ width set """
     @width.setter
     def width(self, value):
         if type(value) == int:
@@ -23,10 +27,12 @@ class Rectangle:
         else:
             raise TypeError("width must be an integer")
 
+    """ height get """
     @property
     def height(self):
         return self.__height
 
+    """ height set """
     @height.setter
     def height(self, value):
         if type(value) == int:
@@ -37,15 +43,18 @@ class Rectangle:
         else:
             raise TypeError("height must be an integer")
 
+    """ def area """
     def area(self):
         return (self.__width * self.__height)
 
+    """ def perimeter """
     def perimeter(self):
         if self.__width != 0 and self.height != 0:
             return ((self.__width * 2) + (self.height * 2))
         else:
             return 0
 
+    """ def str output """
     def __str__(self):
         stri = ""
         if self.__width != 0 and self.height != 0:
@@ -57,9 +66,11 @@ class Rectangle:
 
         return stri
 
+    """ def output repr """
     def __repr__(self):
         return "Rectangle({}, {})".format(self.__width, self.__height)
 
+    """ def delete routine """
     def __del__(self):
         Rectangle.number_of_instances -= 1
         return print("Bye rectangle...")
