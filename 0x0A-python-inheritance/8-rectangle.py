@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""" BaseGeometry Class """
+""" BaseGeometry Class """
 
 
 class BaseGeometry:
@@ -7,13 +7,22 @@ class BaseGeometry:
     def __init__(self):
         pass
 
-    """ area function """
     def area(self):
         raise Exception("area() is not implemented")
 
-    """ integer validator function """
     def integer_validator(self, name, value):
-        if (type(value) != int):
+        if (value.__class__ != int):
             raise TypeError("{} must be an integer".format(name))
         if (value <= 0):
             raise ValueError("{:} must be greater than 0".format(name))
+
+""" Rectangle Class """
+
+
+class Rectangle(BaseGeometry):
+    """ Class Rectangle inherith from basegeometry"""
+    def __init__(self, width, height):
+        super().integer_validator("width", width)
+        super().integer_validator("height", height)
+        self.__width = width
+        self.__height = height

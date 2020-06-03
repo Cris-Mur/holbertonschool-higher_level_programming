@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""" BaseGeometry Class """
+""" BaseGeometry Class """
 
 
 class BaseGeometry:
@@ -7,13 +7,20 @@ class BaseGeometry:
     def __init__(self):
         pass
 
-    """ area function """
     def area(self):
         raise Exception("area() is not implemented")
 
-    """ integer validator function """
     def integer_validator(self, name, value):
-        if (type(value) != int):
+        if (value.__class__ != int):
             raise TypeError("{} must be an integer".format(name))
         if (value <= 0):
             raise ValueError("{:} must be greater than 0".format(name))
+
+""" Square Class """
+
+
+class Square(BaseGeometry):
+    def __init__(self, size):
+        super().integer_validator("size", size)
+        self.__size = size
+        super().__init__(self.__size, self.__size)
