@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """" BaseGeometry Class """
+
+
 class BaseGeometry:
     "Class base for check inputs for geometryclasses"
     def __init__(self):
