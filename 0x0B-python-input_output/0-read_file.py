@@ -1,4 +1,4 @@
-#!/urs/bin/python3
+#!/usr/bin/python3
 '''
 function that open a text file and print this is stdout
 '''
