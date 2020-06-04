@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""
-load, add, save
-"""
+''' load, add, save '''
 
 import sys
 
