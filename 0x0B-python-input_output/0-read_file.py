@@ -4,5 +4,5 @@
 
 def read_file(filename=""):
     """ read file function """
-    coso = open(filename)
-    print(coso.read(), end='')
+    with open(filename, encoding="utf-8") as coso:
+        print(coso.read(), end='')
