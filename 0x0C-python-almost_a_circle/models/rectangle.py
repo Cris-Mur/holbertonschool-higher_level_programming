@@ -77,3 +77,11 @@ class Rectangle(Base):
         """ Display in a console """
         for y in range(0, self.__height):
             print(self.__width*"#")
+
+    def __str__(self):
+        """ string display """
+        return "[{}] ({}) {}/{} - {}/{}".format(
+            self.__class__.__name__, self.id,
+            self.__x, self.__y,
+            self.__width, self.__height
+        )
