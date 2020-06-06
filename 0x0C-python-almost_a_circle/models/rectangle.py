@@ -88,10 +88,12 @@ class Rectangle(Base):
             self.__width, self.__height
         )
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """ update routine"""
         if args:
             self.updata(*args)
+        elif kwargs:
+            self.updata(**kwargs)
 
     def updata(self, id=None, width=None, height=None, x=None, y=None):
         """ update data """
