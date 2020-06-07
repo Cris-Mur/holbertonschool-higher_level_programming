@@ -32,3 +32,11 @@ class Base:
             if list_objs:
                 sweeps = [steps.to_dictionary() for steps in list_objs]
             coso.write(cls.to_json_string(sweeps))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """ json to list """
+        if json_string is None or not json_string:
+            return []
+        else:
+            return json.loads(json_string)
