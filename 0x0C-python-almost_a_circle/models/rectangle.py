@@ -90,20 +90,11 @@ class Rectangle(Base):
 
     def update(self, *args, **kwargs):
         """ update routine"""
-        if args:
-            self.updata(*args)
+        agu = ("id", "width", "height", "x", "y")
+        if args and len(args) != 0:
+            for cso in range(len(args)):
+                setattr(self, agu[cso], args[cso])
         elif kwargs:
-            self.updata(**kwargs)
-
-    def updata(self, id=None, width=None, height=None, x=None, y=None):
-        """ update data """
-        if id is not None:
-            super().__init__(id)
-        if width is not None:
-            self.width = width
-        if height is not None:
-            self.height = height
-        if x is not None:
-            self.x = x
-        if y is not None:
-            self.y = y
+            for key, vl in kwargs.items():
+                if hasattr(self, key):
+                    setattr(self, key, vl)

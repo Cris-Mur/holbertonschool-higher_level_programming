@@ -23,3 +23,14 @@ class Square(Rectangle):
         return "[{}] ({}) {}/{} - {}".format(
             self.__class__.__name__, self.id,
             self.x, self.y, self.size)
+
+    def update(self, *args, **kwargs):
+        """ update routine"""
+        agu = ("id", "size", "x", "y")
+        if args and len(args) != 0:
+            for cso in range(len(args)):
+                setattr(self, agu[cso], args[cso])
+        elif kwargs:
+            for key, vl in kwargs.items():
+                if hasattr(self, key):
+                    setattr(self, key, vl)
