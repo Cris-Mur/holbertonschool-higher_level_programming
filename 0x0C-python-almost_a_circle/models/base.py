@@ -40,3 +40,23 @@ class Base:
             return []
         else:
             return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """ set instanses from dict """
+        if cls.__name__ == "Rectangle":
+            coso = cls(1, 1)
+        if cls.__name__ == "Square":
+            coso = cls(1)
+        coso.update(**dictionary)
+        return coso
+
+    @classmethod
+    def load_from_file(cls):
+        """ read file """
+        namae = "{}.json".format(cls.__name__)
+        if not os.path.isfile(namae):
+            return []
+        with open(namae, mode="r", encoding="utf-8") as bear:
+            return [cls.create(**coso)
+                    for coso in cls.from_json_string(bear.read())]
