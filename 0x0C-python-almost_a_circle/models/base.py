@@ -26,12 +26,12 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """ safe .json """
-        sweeps = list()
+        sheeps = list()
         tag = cls.__name__ +".json"
         with open(tag, mode="w", encoding="utf-8") as coso:
             if list_objs:
-                sweeps = [steps.to_dictionary() for steps in list_objs]
-            coso.write(cls.to_json_string(sweeps))
+                sheeps = [steps.to_dictionary() for steps in list_objs]
+            coso.write(cls.to_json_string(sheeps))
 
     @staticmethod
     def from_json_string(json_string):
