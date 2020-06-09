@@ -7,6 +7,7 @@ import os
 class Base:
     """ Definition of class Base """
     __nb_objects = 0
+
     def __init__(self, id=None):
         """ init class """
         if id is not None:
@@ -27,7 +28,7 @@ class Base:
     def save_to_file(cls, list_objs):
         """ safe .json """
         sheeps = list()
-        tag = cls.__name__ +".json"
+        tag = cls.__name__ + ".json"
         with open(tag, mode="w", encoding="utf-8") as coso:
             if list_objs:
                 sheeps = [steps.to_dictionary() for steps in list_objs]
