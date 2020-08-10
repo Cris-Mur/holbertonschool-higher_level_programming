@@ -10,7 +10,6 @@ if __name__ == '__main__':
                            user=sys.argv[1], passwd=sys.argv[2],
                            db=sys.argv[3])
     mouse = datB.cursor()
-    #i_str = sys.argv[4]
     SQL_str = 'SELECT * FROM states WHERE name = %s\
     COLLATE latin1_general_cs ORDER BY id'
     mouse.execute(SQL_str, (sys.argv[4], ))
