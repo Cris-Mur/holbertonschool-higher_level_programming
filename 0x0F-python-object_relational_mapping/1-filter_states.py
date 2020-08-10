@@ -2,7 +2,7 @@
 ''' Script that list Data in a SQLdb '''
 
 def Ls_states(cursor):
-    SQL_str = "SELECT * FROM states ORDER BY id"
+    SQL_str = 'SELECT * FROM states WHERE name LIKE"N%" ORDER BY id'
     cursor.execute(SQL_str)
     table = cursor.fetchall()
     for state in table:
