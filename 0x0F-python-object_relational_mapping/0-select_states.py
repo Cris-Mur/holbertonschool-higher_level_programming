@@ -2,6 +2,8 @@
 ''' Script that list Data in a SQLdb '''
 
 def Ls_states(cursor):
+    ''' Function that use MySQLdb.cursor '''
+    ''' excecute a sql string for list dabaBase '''
     SQL_str = "SELECT * FROM states ORDER BY id"
     cursor.execute(SQL_str)
     table = cursor.fetchall()
