@@ -13,7 +13,8 @@ if __name__ == '__main__':
     mouse.execute(SQL_str)
     table = mouse.fetchall()
     for state in table:
-        print(state)
+        if state[1][0] == 'N':
+            print(state)
 
     mouse.close()
     datB.close()
