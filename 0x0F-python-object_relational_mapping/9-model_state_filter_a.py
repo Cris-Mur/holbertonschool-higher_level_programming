@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-''' Script that list Data in a SQLdb '''
+''' Script that list Data in a SQLdb using SQLAlchemy'''
 import sys
 from sqlalchemy import (create_engine)
 from model_state import Base, State
