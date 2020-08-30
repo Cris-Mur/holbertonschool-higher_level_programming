@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-''' Script that list Data in a SQLdb using SQLAlchemy'''
+'''
+Script that list Data in a SQLdb
+using SQLAlchemy
+'''
 import sys
 from sqlalchemy import (create_engine)
 from model_state import Base, State
@@ -20,11 +23,8 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=datB)
     session = Session()
 
-    query = session.query(State).filter(State.name.like('%a%')).
-    order_by(State.id)
-    table = query.all()
-
-    for state in table:
+    for state in session.query(State).filter(State.name.contains('a')).order_by(
+            State.id).all():
         print("{:d}: {:s}".format(state.id, state.name))
 
     session.close()
