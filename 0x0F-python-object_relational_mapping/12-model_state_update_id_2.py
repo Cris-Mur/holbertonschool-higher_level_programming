@@ -7,9 +7,9 @@ from sqlalchemy.orm import sessionmaker
 
 if __name__ == '__main__':
 
-    user=sys.argv[1]
-    passwd=sys.argv[2]
-    db=sys.argv[3]
+    user = sys.argv[1]
+    passwd = sys.argv[2]
+    db = sys.argv[3]
 
     datB = create_engine(
         "mysql+mysqldb://{}:{}@localhost:3306/{}".format(user,
@@ -17,12 +17,10 @@ if __name__ == '__main__':
                                                          db),
         pool_pre_ping=True)
 
-    Session = sessionmaker(bind=engine)
+    Session = sessionmaker(bind=datB)
     session = Session()
 
-    query = session.query(State).filter(State.id == 2)
-    table = query.one()
-    table.name = 'New Mexico'
+    query = session.query(State).filter(State.id == 2).first()
+    query.name = 'New Mexico'
     session.commit()
-
     session.close()
