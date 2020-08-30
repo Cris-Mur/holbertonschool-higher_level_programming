@@ -10,11 +10,15 @@ if __name__ == '__main__':
                            user=sys.argv[1], passwd=sys.argv[2],
                            db=sys.argv[3])
     mouse = datB.cursor()
-    SQL_str = 'SELECT cities.name FROM cities, states WHERE states.name = %s\
-    AND states.id = cities.state_id ORDER BY id'
+    SQL_str = 'SELECT cities.name FROM cities INNER JOIN states ON\
+    cities.state_id = states.id WHERE states.name = %s ORDER BY cities.id'
     mouse.execute(SQL_str, (sys.argv[4], ))
     table = mouse.fetchall()
+    flag = 0
     for state in table:
-        print(state)
+        if flag != 0:
+            print(", ", end="")
+        print(state, end="")
+    print("")
     mouse.close()
     datB.close()
