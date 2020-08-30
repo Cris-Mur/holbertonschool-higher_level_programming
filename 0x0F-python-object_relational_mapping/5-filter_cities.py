@@ -18,7 +18,7 @@ if __name__ == '__main__':
     for state in table:
         if flag != 0:
             print(", ", end="")
-        print(state, end="")
+        print("%s" % state, end="")
     print("")
     mouse.close()
     datB.close()
