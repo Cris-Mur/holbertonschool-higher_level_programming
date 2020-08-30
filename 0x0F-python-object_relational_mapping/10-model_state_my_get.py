@@ -7,9 +7,9 @@ from sqlalchemy.orm import sessionmaker
 
 if __name__ == '__main__':
 
-    user=sys.argv[1]
-    passwd=sys.argv[2]
-    db=sys.argv[3]
+    user = sys.argv[1]
+    passwd = sys.argv[2]
+    db = sys.argv[3]
     i_str = sys.argv[4]
 
     datB = create_engine(
@@ -18,14 +18,13 @@ if __name__ == '__main__':
                                                          db),
         pool_pre_ping=True)
 
-    Session = sessionmaker(bind=engine)
+    Session = sessionmaker(bind=datB)
     session = Session()
 
-    query = session.query(State).filter(State.name == i_str).order_by(State.id)
-    table = query.all()
-    if not table:
+    query = session.query(State).filter(State.name == i_str).first()
+    if not query:
         print("{}".format("Not found"))
     else:
-        print("{:d}".format(table.id))
+        print("{:d}".format(query.id))
 
     session.close()
