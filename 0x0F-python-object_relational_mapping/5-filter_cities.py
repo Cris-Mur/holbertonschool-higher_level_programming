@@ -18,6 +18,7 @@ if __name__ == '__main__':
     for state in table:
         if flag != 0:
             print(", ", end="")
+        flag = 1
         print("%s" % state, end="")
     print("")
     mouse.close()
