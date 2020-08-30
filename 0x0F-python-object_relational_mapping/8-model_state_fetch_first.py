@@ -17,7 +17,7 @@ if __name__ == '__main__':
                                                          db),
         pool_pre_ping=True)
 
-    Session = sessionmaker(bind=engine)
+    Session = sessionmaker(bind=datB)
     session = Session()
 
     query = session.query(State).filter(State.id)
