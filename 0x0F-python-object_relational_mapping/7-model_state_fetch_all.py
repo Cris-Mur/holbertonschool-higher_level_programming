@@ -7,9 +7,9 @@ from sqlalchemy.orm import sessionmaker
 
 if __name__ == '__main__':
 
-    user=sys.argv[1]
-    passwd=sys.argv[2]
-    db=sys.argv[3]
+    user = sys.argv[1]
+    passwd = sys.argv[2]
+    db = sys.argv[3]
 
     datB = create_engine(
         "mysql+mysqldb://{}:{}@localhost:3306/{}".format(user,
@@ -20,7 +20,7 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    for state in session.query(State).order_by(State.id):
-        print("{:d}: {:s}".format(state.id, state.name))
+    for point in session.query(State).order_by(State.id):
+        print("{}: {}".format(point.id, point.name))
 
     session.close()
