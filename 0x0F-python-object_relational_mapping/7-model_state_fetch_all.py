@@ -20,10 +20,7 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    query = session.query(State).order_by(State.id)
-    table = query.all()
-
-    for state in table:
+    for state in session.query(State).order_by(State.id):
         print("{:d}: {:s}".format(state.id, state.name))
 
     session.close()
