@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Python script that takes your Github credentials (username and password) """
+""" Python script that takes your Github credentials (username & password) """
 from requests import get, auth
 import sys
 if __name__ == '__main__':
