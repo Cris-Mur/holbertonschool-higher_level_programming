@@ -10,7 +10,6 @@ if __name__ == '__main__':
     user = sys.argv[1]
     passwd = sys.argv[2]
     db = sys.argv[3]
-    i_str = sys.argv[4]
 
     datB = create_engine(
         "mysql+mysqldb://{}:{}@localhost:3306/{}".format(user,
@@ -21,10 +20,7 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=datB)
     session = Session()
 
-    query = session.query(State).filter(State.name == i_str).first()
-    if not query:
-        print("{}".format("Not found"))
-    else:
-        print("{:d}".format(query.id))
-
+    for state in session.query(State).filter(State.name.contains('a')).all():
+        session.delete(state)
+    session.commit()
     session.close()
