@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Python script that takes in a URL and an email, sends a POST request to the passed URL with the email as a parameter """
+""" Python script that takes in a URL and an email """
 from urllib import request, parse
 import sys
 if __name__ == '__main__':
