@@ -9,7 +9,7 @@ const facto = (n) => {
   return n * facto(n - 1);
 };
 
-if (Rex.text(n)) {
+if (Rex.test(n)) {
   console.log(facto(parseInt(n)));
 } else {
   console.log(1);
