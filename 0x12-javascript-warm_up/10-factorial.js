@@ -1,13 +1,16 @@
 #!/usr/bin/node
-
-const n = parseInt(process.argv[2]);
+const Rex = /^[0-9]*?.[0-9]*$/;
+const n = process.argv[2];
 
 const facto = (n) => {
-  if (n > 1) {
-    return (facto(n - 1) * n);
-  } else {
-    return (n < 0 ? -1 : 1);
+  if (n === 0) {
+    return 1;
   }
+  return n * facto(n - 1);
 };
 
-console.log(facto(n));
+if (Rex.text(n)) {
+  console.log(facto(parseInt(n)));
+} else {
+  console.log(1);
+}
