@@ -2,7 +2,7 @@
 const Rex = /^[0-9]*?.[0-9]*$/;
 const n = process.argv[2];
 
-const facto = (n) => {
+function facto = (n) => {
   if (n === 0) {
     return 1;
   }
