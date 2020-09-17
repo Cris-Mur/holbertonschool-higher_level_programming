@@ -5,4 +5,4 @@ exports.callMeMoby = function (x, theFunction) {
   for (stp = 0; stp < x; stp++) {
     theFunction();
   }
-}
+};
