@@ -7,15 +7,15 @@ class Square extends Rectangle {
   }
 
   charPrint (cosito) {
-		if (!cosito) {
-			super.print();
-		} else {
-			let y;
-			for (y = 0; y < this.height; y++) {
-				console.log(cosito.repeat(this.width));
-			}
-		}
-	}
+    if (!cosito) {
+      super.print();
+    } else {
+      let y;
+      for (y = 0; y < this.height; y++) {
+        console.log(cosito.repeat(this.width));
+      }
+    }
+  }
 }
 
 module.exports = Square;
