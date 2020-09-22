@@ -8,7 +8,7 @@ class Square extends Rectangle {
 
   charPrint (cosito) {
     if (!cosito) {
-      super.print();
+      this.print();
     } else {
       let y;
       for (y = 0; y < this.height; y++) {
